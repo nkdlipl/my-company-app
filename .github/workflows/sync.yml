@@ -1,0 +1,25 @@
+
+name: Send Work to Boss
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deliver-to-boss:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Push to Company Server
+        env:
+          GITEA_TOKEN: ${{ secrets.COMPANY_GITEA_TOKEN }}
+        run: |
+          # Connect to Boss Repo
+          COMPANY_URL="overstimulative-macey-abysmally.ngrok-free.dev/nareshlipl/company-app.git"
+          git remote add company https://nareshlipl:$GITEA_TOKEN@$COMPANY_URL
+          
+          # Push safely into Employee 1's review branch
+          git push company HEAD:employee-1-review --force
