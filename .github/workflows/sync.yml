@@ -2,7 +2,9 @@
 name: Send Work to Boss
 
 on:
-  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'  # This means the robot ONLY wakes up for tags that start with "v" (like v1.0, v1.1)
 
 jobs:
   deliver-to-boss:
