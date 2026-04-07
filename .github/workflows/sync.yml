@@ -2,9 +2,7 @@
 name: Send Work to Boss
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   deliver-to-boss:
