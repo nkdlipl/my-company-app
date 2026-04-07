@@ -22,4 +22,4 @@ jobs:
           git remote add company https://nareshlipl:$GITEA_TOKEN@$COMPANY_URL
           
           # Push safely into Employee 1's review branch
-          git push company HEAD:employee-1-review --force
+          git push company HEAD:refs/heads/employee-1-review --force
